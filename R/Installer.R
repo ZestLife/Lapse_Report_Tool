@@ -3,8 +3,19 @@
 require(openxlsx)
 require(excel.link)
 require(lubridate)
+require(stringr)
 
 
+
+elapsed_months <- function(end_date, start_date) {
+  ed <- as.POSIXlt(end_date)
+  sd <- as.POSIXlt(start_date)
+  12 * (ed$year - sd$year) + (ed$mon - sd$mon)
+}
+
+
+
+`%not in%` <- function (x, table) is.na(match(x, table, nomatch=NA_integer_))
 
 
 
